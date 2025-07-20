@@ -53,5 +53,5 @@ with torch.no_grad():
     outputs = model(X)
     y_pred = nn.functional.sigmoid(outputs) > 0.5
     y_pred_correct = y_pred.type(torch.float32) == y
-    print(y_pred_correct.type(torch.float32).mean())
+    print("Accuracy:", y_pred_correct.type(torch.float32).mean().item())
 

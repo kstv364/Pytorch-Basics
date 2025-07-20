@@ -8,6 +8,7 @@ df = df[["loan_status", "person_income", "loan_intent", "loan_percent_income", "
 df = pd.get_dummies(df, columns=["loan_intent"])
 print(df.columns)
 
+
 y = torch.tensor(df["loan_status"], dtype=torch.float32)\
     .reshape((-1, 1))
 

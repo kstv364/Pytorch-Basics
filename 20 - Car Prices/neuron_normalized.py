@@ -36,7 +36,7 @@ model = nn.Linear(2, 1)
 loss_fn = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.0000000001)
 
-for i in range(0, 1000):
+for i in range(0, 10000):
     # Training pass
     optimizer.zero_grad()
     outputs = model(X)
@@ -45,11 +45,11 @@ for i in range(0, 1000):
     optimizer.step()
 
     # print(loss)
-    #if i % 100 == 0: 
-    #    print(model.bias)
-    #    print(model.weight)
+    if i % 100 == 0: 
+       print(loss)
 
 prediction = model(torch.tensor([
     [5, 10000]
 ], dtype=torch.float32))
+
 print(prediction * y_std + y_mean)
